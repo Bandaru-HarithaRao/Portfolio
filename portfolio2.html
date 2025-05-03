@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Haritha Rao | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-papj5vZ4NwEEX9Y30N2EMBFjsA1EKyQ4G3DKuMAMmZhOyoOHeBzIV+GkMPphKNz0sG3N1FMwS9jTtV2a6pVozw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #0d0d0d;
+      color: #f8f8f8;
+      scroll-behavior: smooth;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: rgba(18,18,18,0.85);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 0 10px #facc15;
+    }
+
+    nav a {
+      color: #f8f8f8;
+      margin: 0 1rem;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #facc15;
+    }
+
+    .hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0.25;
+    }
+
+    .profile-img {
+  width: 200px;
+  height: 200px;
+  object-fit: contain; /* Changed from cover */
+  border-radius: 50%;
+  border: 3px solid #facc15;
+  box-shadow: 0 0 15px #facc15;
+  margin-bottom: 1.5rem;
+  background-color: #000; /* Optional: adds a dark background behind transparent areas */
+}
+
+    .intro h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: #ffffff;
+    }
+
+    .typewriter span {
+      display: inline-block;
+      border-right: 2px solid #facc15;
+      white-space: nowrap;
+      overflow: hidden;
+      animation: blink 1s step-end infinite;
+      font-size: 1.3rem;
+      color: #facc15;
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    .section {
+      padding: 4rem 2rem;
+    }
+
+    .section h2 {
+      font-size: 2rem;
+      color: #facc15;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #facc15;
+      display: inline-block;
+      padding-bottom: 0.3rem;
+    }
+
+    .btn {
+      background-color: transparent;
+      border: 2px solid #facc15;
+      color: #facc15;
+      padding: 0.75rem 2rem;
+      cursor: pointer;
+      font-size: 1rem;
+      margin-top: 1.5rem;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #facc15;
+      color: #000;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background-color: #1a1a1a;
+      border: 2px solid #facc15;
+      padding: 2rem;
+      border-radius: 10px;
+      transition: transform 0.4s, box-shadow 0.4s;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 20px #facc15;
+    }
+
+    .flip-card {
+      perspective: 1000px;
+    }
+
+    .flip-inner {
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      position: relative;
+    }
+
+    .flip-card:hover .flip-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-front, .flip-back {
+      position: absolute;
+      width: 100%;
+      backface-visibility: hidden;
+      padding: 2rem;
+      border: 2px solid #facc15;
+      border-radius: 10px;
+    }
+
+    .flip-front {
+      background: #1a1a1a;
+    }
+
+    .flip-back {
+      background: #111;
+      color: #facc15;
+      transform: rotateY(180deg);
+    }
+
+    .contact-icons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 2rem;
+    }
+
+    .contact-icons a {
+      margin: 0.5rem 0;
+      font-size: 1.5rem;
+      color: #facc15;
+      transition: transform 0.3s;
+    }
+
+    .contact-icons a:hover {
+      transform: scale(1.2);
+    }
+    .project-card {
+  position: relative;
+  overflow: hidden;
+  height: 150px;
+  transition: height 0.5s ease;
+  background-color: #1a1a1a;
+  color: #fff;
+}
+
+.project-card:hover {
+  height: 450px; /* Increased from 350px */
+}
+
+.card-title {
+  font-size: 1.2rem;
+  color: #facc15;
+  margin-bottom: 1rem;
+}
+
+.card-content {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  max-height: 0;
+  overflow: hidden;
+}
+
+.project-card:hover .card-content {
+  opacity: 1;
+  max-height: 1000px;
+  overflow-y: auto; /* Scrolls if content exceeds space */
+}
+
+.card-content ul {
+  margin-left: 1.2rem;
+  list-style-type: disc;
+  padding-right: 1rem; /* Adds spacing for scrollbar */
+}
+
+.card-content p, .card-content li {
+  font-size: 0.9rem;
+  line-height: 1.4rem;
+}
+.project-card:hover .card-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.project-card:hover .card-content::-webkit-scrollbar-thumb {
+  background: #facc15;
+  border-radius: 10px;
+}
+
+.project-card:hover .card-content::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+/* Remove or comment out the opacity:0 */
+.contact-icons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  /* opacity: 0;  ← remove this line */
+}
+
+/* You can also reset icon-link defaults */
+.icon-link {
+  font-size: 2rem;
+  color: #facc15;
+  /* transform: translateX(100px);
+     opacity: 0;  ← remove these transforms */
+  transform: none;
+  opacity: 1;
+}
+
+.icon-link.animated {
+  animation: slideIn 0.6s forwards;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+@keyframes shine {
+  0% { text-shadow: none; }
+  50% { text-shadow: 0 0 10px #facc15, 0 0 20px #facc15; }
+  100% { text-shadow: none; }
+}
+
+
+
+
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div><strong>Vedosi</strong></div>
+    <div>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <section class="hero" id="home">
+    <video autoplay muted loop>
+      <source src="vecteezy_red-abstract-background-digital-connection-moving-dots-and_30248408.mp4" type="video/mp4" />
+     
+    </video>
+    <img src="profile.jpeg" alt="Profile Photo" class="profile-img">
+    <div class="intro">
+      <h1 id="introText">Hi, I'm <span id="name"></span></h1>
+      <div class="typewriter">
+        <span id="roles"></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <h2>About Me</h2>
+    <p>I’m a passionate tech explorer currently pursuing my B.Tech, driven by curiosity and creativity. My interests lie at the intersection of Artificial Intelligence, Machine Learning, and modern web development, where I aim to build intelligent, impactful digital solutions. Whether it's crafting responsive web apps or training smart models, I thrive on turning ideas into reality. I’m always learning, always building — and always looking to push the boundaries of what's possible with code.</p>
+    <button class="btn" onclick="document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' })">View Work</button>
+  </section>
+
+  <section class="section" id="portfolio">
+    <h2>Portfolio</h2>
+    <div class="cards">
+      <div class="card project-card">
+        <h3 class="card-title">Zomato Restaurant Listing</h3>
+        <div class="card-content">
+          <p><strong>Technologies:</strong> HTML, CSS, JS, Python, Flask, MongoDB</p>
+          <ul>
+            <li>Full-stack app for restaurant search by ID, city, and dish name.</li>
+            <li>Backend with Flask, MongoDB for data storage.</li>
+            <li>Image & location-based search with Gemini.</li>
+            <li>Responsive UI with Bootstrap for a smooth experience.</li>
+          </ul>
+        </div>
+      </div>
+  
+      <div class="card project-card">
+        <h3 class="card-title">Sentiment Analysis with Ensemble</h3>
+        <div class="card-content">
+          <p><strong>Technologies:</strong> HTML, CSS, JS, Python, Flask</p>
+          <ul>
+            <li>Used Naïve Bayes, KNN, SVM, Logistic Regression, etc.</li>
+            <li>Implemented ensemble voting for accuracy boost.</li>
+            <li>Interactive UI with predictions, graphs & metrics.</li>
+            <li>TF-IDF and SMOTE used for robust classification.</li>
+          </ul>
+        </div>
+      </div>
+  
+      <div class="card project-card">
+        <h3 class="card-title">Recipe Suggestion Bot</h3>
+        <div class="card-content">
+          <p><strong>Technologies:</strong> HTML, CSS, JS</p>
+          <ul>
+            <li>AI-powered recipe generation using Gemini APIs.</li>
+            <li>Supports text/image inputs with health filters.</li>
+            <li>User login, health profile storage, CSV export.</li>
+            <li>Personalized recipes for diabetes, heart issues, etc.</li>
+          </ul>
+        </div>
+      </div>
+  
+      <div class="card project-card">
+        <h3 class="card-title">CNN – Knee Osteoarthritis</h3>
+        <div class="card-content">
+          <ul>
+            <li>Trained CNN model on X-ray images for OA severity.</li>
+            <li>Categories: Normal, Doubtful, Mild, Moderate, Severe.</li>
+            <li>Supports early diagnosis and efficient treatment planning.</li>
+            <li>Reduces manual effort with improved accuracy.</li>
+          </ul>
+        </div>
+      </div>
+  
+      <div class="card project-card">
+        <h3 class="card-title">ASL Recognition – ResNet50</h3>
+        <div class="card-content">
+          <ul>
+            <li>Fine-tuned pre-trained ResNet50 for ASL gesture recognition.</li>
+            <li>Image resizing & augmentation for generalization.</li>
+            <li>Low learning rate fine-tuning of top layers.</li>
+          </ul>
+        </div>
+      </div>
+  
+      <div class="card project-card">
+        <h3 class="card-title">Smart Dustbin System</h3>
+        <div class="card-content">
+          <ul>
+            <li>Monitors dustbin fill level with ultrasonic sensors.</li>
+            <li>Alerts via Bluetooth and buzzer when full.</li>
+            <li>Servo-controlled lid for automation.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+  <section class="section" id="skills">
+    <h2>Skills</h2>
+    <div class="cards">
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-front">LANGUAGES</div>
+          <div class="flip-back">Java, C, C++ (Basics)<br>Python (Basics)<br>HTML, CSS, JavaScript (Basics)<br>SQL (Basics)</div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-front">FRAMEWORKS / LIBRARIES</div>
+          <div class="flip-back">Scikit-learn, NumPy, Pandas<br>TensorFlow, Keras, Matplotlib</div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-front">TOOLS</div>
+          <div class="flip-back">Git/GitHub, VS Code<br>Jupyter Notebook, Kaggle<br>Linux, Windows</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:bandaru.vedosiharitharao01@gmail.com" style="color:#facc15;">bandaru.vedosiharitharao01@gmail.com</a></p>
+    <div class="contact-icons" id="contact-icons">
+        <a href="https://www.linkedin.com/in/bandaru-vedosi-haritha-rao-392696291" target="_blank" class="icon-link">
+          <i class="fab fa-linkedin-in"></i> LinkedIn
+        </a>
+        <a href="https://github.com/Bandaru-HarithaRao" target="_blank" class="icon-link">
+          <i class="fab fa-github"></i> GitHub
+        </a>
+        <a href="https://www.kaggle.com/vedosiharitharao" target="_blank" class="icon-link">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/kaggle.svg" alt="Kaggle" style="width: 2.0rem; height: 2.0rem; filter: invert(83%) sepia(74%) saturate(721%) hue-rotate(360deg); display: inline-block; vertical-align: middle; margin-right: 8px;"> Kaggle
+        </a>
+      </div>
+      
+      
+  </section>
+
+  <script>
+    const nameText = "Haritha Rao";
+    const nameEl = document.getElementById("name");
+    const rolesEl = document.getElementById("roles");
+
+    async function typeSequence() {
+      nameEl.textContent = "";
+      rolesEl.textContent = "";
+
+      for (let i = 0; i < nameText.length; i++) {
+        nameEl.textContent += nameText[i];
+        await new Promise(r => setTimeout(r, 150));
+      }
+
+      await new Promise(r => setTimeout(r, 800));
+      rolesEl.textContent = "AI & ML Enthusiast";
+
+      await new Promise(r => setTimeout(r, 1200));
+      rolesEl.textContent = "AI & ML Enthusiast |";
+
+      await new Promise(r => setTimeout(r, 1000));
+      rolesEl.textContent = "AI & ML Enthusiast | Web Developer";
+
+      await new Promise(r => setTimeout(r, 3000));
+      typeSequence();
+    }
+
+    typeSequence();
+  
+  // Animate heading letters
+  function animateHeading(id) {
+    const heading = document.querySelector(`#${id} h2`);
+    const text = heading.textContent;
+    heading.innerHTML = "";
+
+    [...text].forEach((char, i) => {
+      const span = document.createElement("span");
+      span.textContent = char;
+      span.style.opacity = "0";
+      span.style.display = "inline-block";
+      span.style.animation = `fadeIn 0.5s forwards ${i * 0.1}s, shine 1s ${text.length * 0.1}s`;
+      heading.appendChild(span);
+    });
+  }
+
+  document.querySelectorAll("nav a").forEach(link => {
+    link.addEventListener("click", e => {
+      const id = link.getAttribute("href").substring(1);
+      setTimeout(() => {
+        animateHeading(id);
+        if (id === "contact") {
+          const icons = document.querySelectorAll(".icon-link");
+          const container = document.getElementById("contact-icons");
+          container.style.opacity = 1;
+          icons.forEach((icon, i) => {
+            setTimeout(() => icon.classList.add("animated"), i * 200);
+          });
+        }
+      }, 400); // Slight delay after scroll
+    });
+  });
+
+  // Initial load
+  window.addEventListener("DOMContentLoaded", () => animateHeading("about"));
+  const icons = document.querySelectorAll('.icon-link');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animated');
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  icons.forEach(icon => observer.observe(icon));
+  window.addEventListener("DOMContentLoaded", () => {
+  const container = document.getElementById("contact-icons");
+  const icons = document.querySelectorAll(".icon-link");
+
+  // make container visible
+  container.style.opacity = 1;
+
+  // animate all icons immediately
+  icons.forEach((icon, i) => {
+    setTimeout(() => icon.classList.add("animated"), i * 200);
+  });
+});
+
+  </script>
+
+</body>
+</html>
